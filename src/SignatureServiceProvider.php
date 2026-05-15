@@ -2,22 +2,22 @@
 
 namespace DotEnvIt\Signature;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Contracts\Http\Kernel;
 use DotEnvIt\Signature\Middleware\InjectSignature;
+use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Support\ServiceProvider;
 
 class SignatureServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/signature.php', 'signature');
+        $this->mergeConfigFrom(__DIR__.'/../config/signature.php', 'signature');
     }
 
     public function boot(Kernel $kernel)
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/signature.php' => config_path('signature.php'),
+                __DIR__.'/../config/signature.php' => config_path('signature.php'),
             ], 'signature-config');
         }
 
@@ -34,13 +34,21 @@ class SignatureServiceProvider extends ServiceProvider
 
         $content = "/* TEAM */\n";
 
-        if ($branding['show_name'])    $content .= "Developed by: " . $branding['name'] . "\n";
-        if ($branding['show_company']) $content .= "Company: " . $branding['company'] . "\n";
-        if ($branding['show_email'])   $content .= "Email: " . $branding['email'] . "\n";
+        if ($branding['show_name']) {
+            $content .= 'Developed by: '.$branding['name']."\n";
+        }
+        if ($branding['show_company']) {
+            $content .= 'Company: '.$branding['company']."\n";
+        }
+        if ($branding['show_email']) {
+            $content .= 'Email: '.$branding['email']."\n";
+        }
 
         $content .= "\n/* SITE */\n";
 
-        if ($branding['show_website']) $content .= "Site: " . $branding['website'] . "\n";
+        if ($branding['show_website']) {
+            $content .= 'Site: '.$branding['website']."\n";
+        }
 
         header('Content-Type: text/plain');
         echo $content;

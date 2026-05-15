@@ -13,7 +13,7 @@ class InjectSignature
         $response = $next($request);
 
         // 1. Check global enable/disable
-        if (!config('signature.enabled', true)) {
+        if (! config('signature.enabled', true)) {
             return $response;
         }
 
@@ -34,9 +34,9 @@ class InjectSignature
                 ($branding['show_email'] ?? false) ? $branding['email'] : null,
             ]);
 
-            if (!empty($parts)) {
-                $signature = "\n\n<!--\n Developed by: " . implode(' | ', $parts) . "\n-->\n";
-                $response->setContent($content . $signature);
+            if (! empty($parts)) {
+                $signature = "\n\n<!--\n Developed by: ".implode(' | ', $parts)."\n-->\n";
+                $response->setContent($content.$signature);
             }
         }
 
@@ -46,7 +46,7 @@ class InjectSignature
     public static function resolveBranding(string $host): array
     {
         $default = config('signature.default', []);
-        $hosts   = config('signature.hosts', []);
+        $hosts = config('signature.hosts', []);
 
         // Look for a specific pattern match
         foreach ($hosts as $pattern => $override) {
@@ -58,7 +58,6 @@ class InjectSignature
 
         return $default;
     }
-
 
     protected function isHtmlResponse(Response $response): bool
     {
