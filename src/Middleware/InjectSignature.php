@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DotEnvIt\Signature\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class InjectSignature
+final class InjectSignature
 {
     public function handle(Request $request, Closure $next): Response
     {
@@ -27,7 +29,7 @@ class InjectSignature
         // 2. HTML Comment injection
         if ($this->isHtmlResponse($response)) {
             $content = $response->getContent();
-            $parts = array_filter([
+            $parts   = array_filter([
                 ($branding['show_name'] ?? false) ? $branding['name'] : null,
                 ($branding['show_company'] ?? false) ? $branding['company'] : null,
                 ($branding['show_website'] ?? false) ? $branding['website'] : null,
@@ -35,8 +37,8 @@ class InjectSignature
             ]);
 
             if (! empty($parts)) {
-                $signature = "\n\n<!--\n Developed by: ".implode(' | ', $parts)."\n-->\n";
-                $response->setContent($content.$signature);
+                $signature = "\n\n<!--\n Developed by: " . implode(' | ', $parts) . "\n-->\n";
+                $response->setContent($content . $signature);
             }
         }
 
@@ -46,7 +48,7 @@ class InjectSignature
     public static function resolveBranding(string $host): array
     {
         $default = config('signature.default', []);
-        $hosts = config('signature.hosts', []);
+        $hosts   = config('signature.hosts', []);
 
         // Look for a specific pattern match
         foreach ($hosts as $pattern => $override) {
@@ -61,7 +63,7 @@ class InjectSignature
 
     protected function isHtmlResponse(Response $response): bool
     {
-        return $response instanceof \Illuminate\Http\Response &&
-            str_contains($response->headers->get('Content-Type'), 'text/html');
+        return $response instanceof \Illuminate\Http\Response
+            && str_contains($response->headers->get('Content-Type'), 'text/html');
     }
 }
