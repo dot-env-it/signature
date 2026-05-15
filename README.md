@@ -1,5 +1,9 @@
 # Signature for Laravel
 
+[![Latest Stable Version](https://img.shields.io/packagist/v/dot-env-it/signature.svg?style=flat-square)](https://packagist.org/packages/dot-env-it/signature)
+[![Total Downloads](https://img.shields.io/packagist/dt/dot-env-it/signature.svg?style=flat-square)](https://packagist.org/packages/dot-env-it/signature)
+[![License](https://img.shields.io/packagist/l/dot-env-it/signature.svg?style=flat-square)](https://packagist.org/packages/dot-env-it/signature)
+
 **Signature** is a lightweight Laravel package that allows you to inject developer credits, company branding, and contact information into your application's HTTP headers, HTML source code, and a virtual `humans.txt` file—all based on the current request host.
 
 ## Features
