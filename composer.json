@@ -1,0 +1,22 @@
+{
+    "name": "dot-env-it/signature",
+    "description": "Customizable host-based branding for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "DotEnvIt\\Signature\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DotEnvIt\\Signature\\SignatureServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.0|^11.0|^12.0|^13.0"
+    }
+}
