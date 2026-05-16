@@ -1,5 +1,10 @@
 # Signature for Laravel
 
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://banners.beyondco.de/Signature.png?pattern=topography&style=style_2&fontSize=100px&md=1&showWatermark=1&theme=dark&packageManager=composer+require&packageName=dot-env-it%2Fsignature&description=Customizable+host-based+branding+for+Laravel&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg">
+    <img src="https://banners.beyondco.de/Signature.png?pattern=topography&style=style_2&fontSize=100px&md=1&showWatermark=1&theme=light&packageManager=composer+require&packageName=dot-env-it%2Fsignature&description=Customizable+host-based+branding+for+Laravel&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg" alt="Signature">
+</picture>
+
 [![Latest Stable Version](https://img.shields.io/packagist/v/dot-env-it/signature.svg?style=flat-square)](https://packagist.org/packages/dot-env-it/signature)
 [![Total Downloads](https://img.shields.io/packagist/dt/dot-env-it/signature.svg?style=flat-square)](https://packagist.org/packages/dot-env-it/signature)
 [![License](https://img.shields.io/packagist/l/dot-env-it/signature.svg?style=flat-square)](https://packagist.org/packages/dot-env-it/signature)
